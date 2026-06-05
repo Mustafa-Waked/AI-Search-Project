@@ -1,87 +1,80 @@
-### AISearchProject
-Finding optimal cost path in a grid with a given start and end   points using both informed and uninformed search.
+# AI-Search-Project
 
-#### Created By: Mustafa Waked
+Grid pathfinding project that finds a **minimum-cost path** between a start and goal cell using several **uninformed** and **informed** search algorithms.
 
-#### Date Of Creation: December 21, 2020.
+## Description
 
-#### VERY IMPORTANT : Read the AI_Project_Summary PDF file in order to understand the inner workings of this project.
+Given an *N × N* grid of non-negative costs (and `-1` for blocked cells), the program searches for an optimal path and reports path cost, expanded vertices, runtime, penetration, and related statistics.
 
-#### Summary:
-A project which revolves around finding optimal cost path in a grid with a given start and end points using both informed and uninformed search algorithms with some squares in the grid that are a dead end and has a value of -1. The algorithms used in
-this project are Iterative Deepining Search (IDS) , Uniform Cost Search (UCS) , A* (ASTAR) , Iterative Deepining A* (IDASTAR) , Bidirectional A* (BIASTAR).
-Tests files and their results are in the 'Tests' folder.
+**Algorithms implemented:** Iterative Deepening Search (IDS), Uniform Cost Search (UCS), A* (ASTAR), Iterative Deepening A* (IDASTAR), Bidirectional A* (BIASTAR).
 
-Example Input :
+## Technologies
 
-	ASTAR -------------------------------------------------------> // Algorithm name
-	17    -------------------------------------------------------> // Dimensions of grid. Here we have 17 x 17 grid.
-	0,0   -------------------------------------------------------> // Starting point
-	16,16 -------------------------------------------------------> // Ending Point
- 	1, 1, 6, 2, 8, 2, 9, 4, 8, 7, 5, 9, 8, 2, 1, 3, 6 -----------> // Prices of points in grid first line
- 	4, 1, 2, 9,12, 2, 7, 9, 2, 1, 2, 8, 9, 3,12, 6, 7
- 	1, 7, 8, 9, 1, 2, 1,12,12, 2,12, 1, 2,12, 3, 7, 5
- 	2, 7, 6, 9,12, 5,12, 6, 3, 8, 2, 7, 9, 7, 1, 7, 1
- 	9, 1, 3, 5, 6, 2,12, 4, 1, 7, 4, 6, 6, 2, 8,12, 5
- 	2, 2, 1, 1, 6, 2, 6, 4, 9, 5, 6,12, 7, 3, 3,12, 5
- 	3, 2, 3,12, 1, 8,12, 4, 9, 4, 9, 2, 3, 1, 2, 3, 8
- 	4, 1, 4, 8, 9, 1, 9, 3, 7, 8, 5, 2, 5, 1, 4, 4, 2
-	-1, 3, 9, 5, 5,12, 2, 3, 2, 8,12, 3, 5, 8, 6, 3, 2
- 	1, 4, 8,12, 9, 6, 2, 4, 2, 2, 5, 2,12, 3, 6, 8, 4
- 	2, 6, 2, 7, 1, 6, 4, 3, 4, 7, 6, 2, 7, 2, 5,12, 1
- 	9, 3, 2, 8, 8, 6, 7, 8, 2, 2, 1, 6, 3, 6, 4, 6, 9
- 	9, 6, 3, 6, 7, 3, 9, 5,12, 6, 7, 1, 3, 6, 9,12, 2
- 	7, 4, 3, 5, 4, 3, 6, 6, 6, 7, 2, 8, 4, 1, 6, 8, 2
- 	1, 2, 1, 2, 5, 2, 7, 2, 9, 3, 3, 4,12, 2, 1, 7, 9 
- 	6, 5, 2, 3, 4,12, 3, 3, 2, 2, 5, 8, 2, 1, 9, 2, 9
- 	3, 2, 2, 3, 2, 4, 9, 3, 5, 3, 6, 5, 8, 4, 7, 6, 7 -----------> // Prices of points in grid last line
-	
-Example Output :
+- C++ (original project built with Visual Studio)
+- Windows console executable (`AISearchProject.exe`)
 
-	Enter a time limit factor for the algorithm (dimension is 17): 0.2
+## Features
 
-	Time limit = dimension * factor = 3.400000 seconds
+- Reads grid size, start/end coordinates, and cell costs from a text input file
+- User-defined time limit (`dimension × factor`)
+- Prints solution path (direction codes), cost, and search metrics
 
-	SOLUTION DETAILS (ASTAR) :
+## Project structure
 
-	***************************************************************************************
+```
+AI-Search-Project/
+├── AISearchProject.exe    # Runnable Windows build
+├── README.md
+├── .gitignore
+└── .gitattributes
+```
 
-	Path : RD-LD-D-RD-RD-R-RD-RD-RD-D-RD-RD-R-R-RD-R-RD-RD-RD-RD
+> **Note:** The repository currently ships the **executable only**. Empty placeholder files that were previously committed (`AISearchProject`, `.sln`, `Tests`, PDF) were removed because they contained no usable source or test data.
 
-	Cost : 36.000000
+## How to run
 
-	Number Of Expanded Vertices : 127
+1. Build or use the provided `AISearchProject.exe` on **Windows**.
+2. Run the executable.
+3. When prompted, paste the **absolute path** to your input `.txt` file.
+4. Enter a positive **time limit factor** (time limit = grid dimension × factor).
+5. View results on screen.
+6. Press `0` to exit.
 
-	***************************************************************************************
+## Input format
 
-	Solution Length : 21
+```text
+ASTAR
+17
+0,0
+16,16
+1, 1, 6, 2, 8, 2, 9, 4, ...
+... (N lines of N integers each)
+```
 
-	Execution Time : 0.026000 seconds
+| Line | Meaning |
+|------|---------|
+| 1 | Algorithm name (`IDS`, `UCS`, `ASTAR`, `IDASTAR`, `BIASTAR`) |
+| 2 | Grid dimension *N* |
+| 3 | Start `row,col` |
+| 4 | Goal `row,col` |
+| 5… | *N* rows of *N* cell costs (`-1` = blocked) |
 
-	Penetrance : 0.165354
+## Example output (abbreviated)
 
-	Heursistic Average : 10.787401
+```text
+Path : RD-LD-D-RD-...
+Cost : 36.000000
+Number Of Expanded Vertices : 127
+Execution Time : 0.026000 seconds
+```
 
-	Effective Branching Factor Is Approximately : 1.259451
+## Notes / limitations
 
-	Minimum Search Tree Depth : 1
+- **Windows `.exe` only** in this repo — no C++ source or Visual Studio solution is currently available on GitHub.
+- Input files must follow the exact format above.
+- Large grids may hit the configured time limit before a solution is returned.
+- For coursework details, refer to your local project report if you still have it.
 
-	Maximum Search Tree Depth : 21
+## Author
 
-	Average Of Search Tree Depths : 11.202847
-
-#### NOTE :
-
-In order to run the program download the AISearchProject.exe file and follow these steps :
-
-1. Open the AISearchProject executable file.
-
-2. Paste the absolute address of txt input file from your your PC ( Example input files exist in the Tests folder ).
-
-3. Enter a positive number in order to determine the time limit for the search algorithm to run under.
-
-4. Results will be displayed on screen.
-
-5. Press 0 to exit the program.
-
-Peace !!!
+Mustafa Waked — December 2020
